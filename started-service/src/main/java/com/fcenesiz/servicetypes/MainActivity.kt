@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun startService(){
         val intent = Intent(this, MyStartedService::class.java).apply {
-
+            putExtra("sleep_time", 5)
         }
         startService(intent)
     }

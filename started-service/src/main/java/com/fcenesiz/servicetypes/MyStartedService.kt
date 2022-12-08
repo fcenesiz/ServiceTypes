@@ -9,6 +9,7 @@ import android.util.Log
 class MyStartedService : Service() {
 
     lateinit var player: MediaPlayer
+    lateinit var myAsyncTask: MyAsyncTask
 
     companion object{
         public val TAG: String = MyStartedService::class.simpleName.toString()
@@ -29,19 +30,23 @@ class MyStartedService : Service() {
      */
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i(TAG, "onStartCommand: " + Thread.currentThread().name)
-
-        // doesn't locks the ui thread
-        player = MediaPlayer.create(this, R.raw.highscore)
-        player.isLooping = true
-        player.start()
-
+        myAsyncTask = MyAsyncTask()
+        myAsyncTask.execute(null)
         return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onDestroy() {
         Log.i(TAG, "onDestroy: " + Thread.currentThread().name)
-        player.stop()
+        myAsyncTask.cancel(true)
         super.onDestroy()
+    }
+
+    // run at onStartCommand without asynctask
+    private fun playSound(){
+        // doesn't locks the ui thread
+        player = MediaPlayer.create(this, R.raw.highscore)
+        player.isLooping = true
+        player.start()
     }
 
 }
