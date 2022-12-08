@@ -28,5 +28,20 @@ class MyAsyncTask : AsyncTask<Int, Void, Int>() {
     }
 
 
+    /**
+     * AsyncTask is deprecated!
+     * use this instead of asynctask
+     */
+    /*
+    ExecutorService executor = Executors.newSingleThreadExecutor();
+    Handler handler = new Handler(Looper.getMainLooper());
+
+    executor.execute(() -> {
+        //Background work here
+        handler.post(() -> {
+            //UI Thread work here
+        });
+    });
+     */
 
 }
