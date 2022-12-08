@@ -32,16 +32,18 @@ class MyStartedService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i(TAG, "onStartCommand: " + Thread.currentThread().name)
         val sleepTime = intent!!.getIntExtra("sleep_time", 0)
-        myAsyncTask = MyAsyncTask()
+        myAsyncTask = MyAsyncTask(this)
         myAsyncTask.execute(sleepTime)
 
-        return super.onStartCommand(intent, flags, startId)
+        return START_REDELIVER_INTENT
     }
 
     override fun onDestroy() {
-        Log.i(TAG, "onDestroy: " + Thread.currentThread().name)
-        myAsyncTask.cancel(true)
+        if (this::myAsyncTask.isInitialized)
+            myAsyncTask.cancel(true)
+        stopSelf()
         super.onDestroy()
+        Log.i(TAG, "onDestroy: " + Thread.currentThread().name)
     }
 
     // run at onStartCommand without asynctask
