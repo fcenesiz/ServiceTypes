@@ -15,3 +15,18 @@ executor.execute(() -> { // doInBackground
     });
 });
 ````
+
+or with kotlin coroutines
+
+````kotlin
+GlobalScope.launch {
+    coroutineScope {
+        // onPreExecute
+        
+        launch {
+            // doInBackground
+            delay(5000)
+        }
+    }
+}
+````

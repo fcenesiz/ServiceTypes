@@ -5,6 +5,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
+import kotlinx.coroutines.*
 
 class MyStartedService : Service() {
 
@@ -33,6 +34,7 @@ class MyStartedService : Service() {
         val sleepTime = intent!!.getIntExtra("sleep_time", 0)
         myAsyncTask = MyAsyncTask()
         myAsyncTask.execute(sleepTime)
+
         return super.onStartCommand(intent, flags, startId)
     }
 
