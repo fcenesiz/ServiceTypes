@@ -30,8 +30,9 @@ class MyStartedService : Service() {
      */
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i(TAG, "onStartCommand: " + Thread.currentThread().name)
+        val sleepTime = intent!!.getIntExtra("sleep_time", 0)
         myAsyncTask = MyAsyncTask()
-        myAsyncTask.execute(null)
+        myAsyncTask.execute(sleepTime)
         return super.onStartCommand(intent, flags, startId)
     }
 
