@@ -16,3 +16,4 @@ rootProject.name = "ServiceTypes"
 include ':started-service'
 include ':intent-service'
 include ':intent-service-with-broadcastreceiver'
+include ':bound-service'

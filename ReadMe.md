@@ -1,6 +1,7 @@
-## started-service
+## 1. started-service
 
 - Asynctask is deprecated!
+- works on main thread
 
 use this instead of asynctask
 ````java
@@ -32,7 +33,7 @@ GlobalScope.launch {
 }
 ````
 
-## intent-service
+## 2. intent-service
 
 - sub-class of started-service
 - has own worker thread (asynctask)
@@ -52,3 +53,17 @@ GlobalScope.launch {
   - operates in worker thread
   - does not block the ui
   - used for long process
+
+## 3. bound-service
+
+A bound service is the server in a client-server interface.
+
+- returns data 
+- need to override ``bindService()``
+- works on main thread
+- for long-standing connection
+- ``onBind()`` returns ``IBinder``
+- If the calling component is destroyed then Bound Services too gets destroyed
+- usage
+  - Generally ``bindService()`` in ``onStart()`` and ``unBindService()`` in ``onStop()``
+  - If you want your Activity to bind to the service even when it is not visible, ``bindService()`` in ``onCreate()`` and ``unBindService()`` in ``onDestroy()``
