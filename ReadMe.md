@@ -3,7 +3,7 @@
 - Asynctask is deprecated!
 - works on main thread
 
-use this instead of asynctask
+use this instead of asynctask on Java
 ````java
 ExecutorService executor = Executors.newSingleThreadExecutor();
 Handler handler = new Handler(Looper.getMainLooper());
