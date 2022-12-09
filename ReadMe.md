@@ -51,13 +51,13 @@ Thread{
     }
 }.start()
 ````
-or with ``handler`` (Deprecated!)
+or with ``handler``
 ````kotlin
 Thread{
     // background
-    handler.post {
-        // main
-    } 
+    Handler(Looper.getMainLooper()).post {
+        // main thread
+    }
 }.start()
 ````
 
