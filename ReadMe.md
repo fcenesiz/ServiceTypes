@@ -51,7 +51,7 @@ Thread{
     }
 }.start()
 ````
-or with ''handler''
+or with ''handler'' (Deprecated!)
 ````kotlin
 Thread{
     // background
