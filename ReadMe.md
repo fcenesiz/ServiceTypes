@@ -32,6 +32,16 @@ GlobalScope.launch {
     }
 }
 ````
+or with ``runOnUIThread()``
+
+````kotlin
+Thread{
+    // background 
+    runOnUiThread { 
+        // main
+    }
+}.start()
+````
 
 ## 2. intent-service
 
