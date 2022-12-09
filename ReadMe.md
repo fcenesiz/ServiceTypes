@@ -42,6 +42,14 @@ Thread{
     }
 }.start()
 ````
+or with ``post()`` method
+````kotlin
+Thread{
+    someView.post {
+
+    }
+}.start()
+````
 
 ## 2. intent-service (Deprecated!)
 
