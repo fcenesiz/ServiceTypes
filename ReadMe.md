@@ -45,8 +45,9 @@ Thread{
 or with ``post()`` method
 ````kotlin
 Thread{
+    // background 
     someView.post {
-
+        // main
     }
 }.start()
 ````
