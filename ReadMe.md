@@ -51,6 +51,15 @@ Thread{
     }
 }.start()
 ````
+or with ''handler''
+````kotlin
+Thread{
+    // background
+    handler.post {
+        // main
+    } 
+}.start()
+````
 
 ## 2. intent-service (Deprecated!)
 
