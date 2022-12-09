@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/intent-service" />
+            <option value="$PROJECT_DIR$/intent-service-with-broadcastreceiver" />
             <option value="$PROJECT_DIR$/started-service" />
           </set>
         </option>
