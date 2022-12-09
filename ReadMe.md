@@ -43,7 +43,7 @@ Thread{
 }.start()
 ````
 
-## 2. intent-service
+## 2. intent-service (Deprecated!)
 
 - sub-class of started-service
 - has own worker thread (asynctask)
