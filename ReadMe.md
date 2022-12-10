@@ -60,6 +60,24 @@ Thread{
     }
 }.start()
 ````
+or with ``handleMessage()``
+````kotlin
+handler = object : Handler(Looper.getMainLooper()){
+    override fun handleMessage(msg: Message) {
+        checkBox.isChecked = (msg.data.getInt("sleep_time", 0) > 3)
+    }
+}
+
+...
+
+Thread{
+            val message = Message.obtain()
+            message.data = Bundle().apply {
+                putInt("sleep_time", 5)
+            }
+            handler.sendMessage(message)
+        }.start()
+````
 
 ## 2. intent-service (Deprecated!)
 
