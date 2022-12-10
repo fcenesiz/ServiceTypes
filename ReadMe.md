@@ -71,12 +71,12 @@ handler = object : Handler(Looper.getMainLooper()){
 ...
 
 Thread{
-            val message = Message.obtain()
-            message.data = Bundle().apply {
-                putInt("sleep_time", 5)
-            }
-            handler.sendMessage(message)
-        }.start()
+    val message = Message.obtain()
+    message.data = Bundle().apply {
+        putInt("sleep_time", 5)
+    }
+    handler.sendMessage(message)
+}.start()
 ````
 
 ## 2. intent-service (Deprecated!)
