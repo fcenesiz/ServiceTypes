@@ -36,7 +36,7 @@ GlobalScope.launch {
 GlobalScope.launch(Dispatchers.IO) {
    // doInBackground
    val answer = doNetworkCall()
-   withContext(Dispatchers.MAIN){
+   withContext(Dispatchers.Main){
         // main
         tvTitle.text = answer
    }
