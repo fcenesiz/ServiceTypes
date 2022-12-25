@@ -31,6 +31,16 @@ GlobalScope.launch {
         }
     }
 }
+
+// also
+GlobalScope.launch(Dispatchers.IO) {
+   // doInBackground
+   val answer = doNetworkCall()
+   withContext(Dispatchers.MAIN){
+        // main
+        tvTitle.text = answer
+   }
+}
 ````
 or with ``runOnUIThread()``
 
